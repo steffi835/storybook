@@ -47,3 +47,12 @@ export const Secondary: Story = {
         label: 'Button',
     },
 }
+
+export const Small: Story = {
+    args: {
+        id: 'small-button',
+        testId: 'small-button',
+        size: 'small',
+        label: 'Button',
+    }
+}
