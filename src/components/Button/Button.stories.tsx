@@ -48,20 +48,22 @@ export const Secondary: Story = {
     },
 }
 
-export const Small: Story = {
+export const Sizes: Story = {
+    render: (args) => {
+        return (
+            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                <Button {...args} id='small-button' size='small' label='Small' />
+                <Button {...args} id='medium-button' size='medium' label='Medium' />
+                <Button {...args} id='large-button' size='large' label='Large' />
+            </div>
+        )
+    },
     args: {
-        id: 'small-button',
-        testId: 'small-button',
-        size: 'small',
-        label: 'Button',
-    }
-}
-
-export const Large: Story = {
-    args: {
-        id: 'large-button',
-        testId: 'large-button',
-        size: 'large',
-        label: 'Button',
-    }
+        id: 'sizes-button',
+        testId: 'sizes-button',
+        label: 'Button'
+    },
+    argTypes: {
+        size: { table: { disable: true } }
+    },
 }
