@@ -1,0 +1,42 @@
+.dropdown {
+    display: inline-block;
+    cursor: pointer;
+    border-radius: 0.3em;
+    font-weight: 500;
+    box-sizing: border-box;
+    line-height: normal;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    border: 1px solid #d9d9d9;
+    background:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath d='M2 4l4 4 4-4' stroke='black' fill='none'/%3E%3C/svg%3E")
+        no-repeat right 12px center;
+
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.dropdown-primary {
+    background-color: #ffffff;
+    color: #333;
+}
+
+.dropdown-secondary {
+    background-color: #f5f5f5;
+    color: #555;
+}
+
+.dropdown-small {
+    padding: 6px 20px;
+    font-size: 12px;
+}
+
+.dropdown-medium {
+    padding: 8px 30px;
+    font-size: 14px;
+}
+
+.dropdown-large {
+    padding: 10px 40px;
+    font-size: 16px;
+}
