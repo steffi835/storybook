@@ -1,17 +1,20 @@
 .button {
-    display: inline-block;
+    align-items: center;
+    border: 0.5px solid transparent;
+    border-radius: 5px;
     cursor: pointer;
-    border: 0;
-    border-radius: 0.3em;
-    font-weight: 500;
-    line-height: 1;
+    display: inline-flex;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+    gap: 10px;
+    justify-content: center;
+    line-height: 1;
+    transition: all 0.2s ease;
 }
 
 .button-primary {
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
-    background-color: transparent;
-    color: #333;
+    background-color: #dfdede;
+    box-shadow: none;
 }
 
 .button-primary:hover {
@@ -20,25 +23,26 @@
 
 .button-secondary {
     background-color: #ffdbea;
+    border-color: currentColor;
     color: #ff3092;
 }
 
 .button-secondary:hover {
-    background-color: #ff3092;
+    background-color: #ff2c8f;
     color: #ffdbea;
 }
 
 .button-small {
-    padding: 8px 20px;
     font-size: 12px;
+    padding: 8px 20px;
 }
 
 .button-medium {
-    padding: 12px 25px;
     font-size: 14px;
+    padding: 12px 25px;
 }
 
 .button-large {
-    padding: 16px 30px;
     font-size: 16px;
+    padding: 16px 30px;
 }
