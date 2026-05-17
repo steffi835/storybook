@@ -1,42 +1,166 @@
 .dropdown {
     display: inline-block;
-    cursor: pointer;
-    border-radius: 0.3em;
-    font-weight: 500;
-    box-sizing: border-box;
-    line-height: normal;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-    border: 1px solid #d9d9d9;
-    background:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath d='M2 4l4 4 4-4' stroke='black' fill='none'/%3E%3C/svg%3E")
-        no-repeat right 12px center;
-
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
+    position: relative;
 }
 
-.dropdown-primary {
-    background-color: #ffffff;
+.dropdown-trigger {
+    align-items: center;
+    border: 0.5px solid;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    font-weight: 500;
+    justify-content: space-between;
+    gap: 12px;
+    line-height: 1;
+    padding: 12px 40px 12px 16px;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.dropdown-trigger::after {
+    background:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 4.5L6 8l3.5-3.5' stroke='%23666' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E")
+        no-repeat center;
+    content: '';
+    height: 12px;
+    width: 12px;
+}
+
+.dropdown-menu {
+    background-color: #fff;
+    border: 0.5px solid;
+    border-radius: 10px;
+    left: 0;
+    list-style: none;
+    margin: 0;
+    padding: 6px;
+    position: absolute;
+    right: 0;
+    top: calc(100% + 6px);
+    z-index: 1000;
+}
+
+.dropdown-item {
+    align-items: center;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    font-weight: 500;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+.dropdown-primary .dropdown-trigger {
+    background-color: #fff;
+    border-color: #d9d9d9;
     color: #333;
 }
 
-.dropdown-secondary {
-    background-color: #f5f5f5;
-    color: #555;
+.dropdown-primary .dropdown-trigger:hover {
+    background-color: #fafafa;
+    border-color: #bfbfbf;
 }
 
-.dropdown-small {
-    padding: 6px 20px;
+.dropdown-primary .dropdown-trigger:focus {
+    border-color: #999999;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06);
+}
+
+.dropdown-primary .dropdown-menu {
+    background-color: #ffffff;
+    border-color: #d9d9d9;
+}
+
+.dropdown-primary .dropdown-item {
+    color: #333333;
+}
+
+.dropdown-primary .dropdown-item:hover {
+    background-color: #f5f5f5;
+}
+
+.dropdown-primary .dropdown-item.active {
+    background-color: #eeeeee;
+    color: #111111;
+}
+
+.dropdown-primary .check {
+    color: #333333;
+}
+
+.dropdown-secondary .dropdown-trigger {
+    background-color: #fff7fa;
+    border-color: #ffb3d1;
+    color: #ff3092;
+}
+
+.dropdown-secondary .dropdown-trigger:hover {
+    background-color: #ffeaf3;
+    border-color: #ff8fc0;
+}
+
+.dropdown-secondary .dropdown-trigger:focus {
+    border-color: #ff5ca8;
+    box-shadow: 0 0 0 3px rgba(255, 48, 146, 0.15);
+}
+
+.dropdown-secondary .dropdown-trigger::after {
+    background:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 4.5L6 8l3.5-3.5' stroke='%23ff3092' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E")
+        no-repeat center;
+}
+
+.dropdown-secondary .dropdown-menu {
+    background-color: #ffffff;
+    border-color: #ffb3d1;
+}
+
+.dropdown-secondary .dropdown-item {
+    color: #ff3092;
+}
+
+.dropdown-secondary .dropdown-item:hover {
+    background-color: #fff0f6;
+}
+
+.dropdown-secondary .dropdown-item.active {
+    background-color: #ffebf5;
+    color: #ff0f7b;
+}
+
+.dropdown-secondary .check {
+    color: #ff3092;
     font-size: 12px;
 }
 
-.dropdown-medium {
-    padding: 8px 30px;
+.dropdown-small .dropdown-trigger {
+    font-size: 12px;
+    padding: 8px 14px;
+}
+
+.dropdown-medium .dropdown-trigger {
+    font-size: 14px;
+    padding: 12px 18px;
+}
+
+.dropdown-large .dropdown-trigger {
+    font-size: 16px;
+    padding: 16px 20px;
+}
+
+.dropdown-small .dropdown-item {
+    padding: 8px 10px;
+    font-size: 12px;
+}
+
+.dropdown-medium .dropdown-item {
+    padding: 10px 12px;
     font-size: 14px;
 }
 
-.dropdown-large {
-    padding: 10px 40px;
+.dropdown-large .dropdown-item {
+    padding: 12px 14px;
     font-size: 16px;
 }
