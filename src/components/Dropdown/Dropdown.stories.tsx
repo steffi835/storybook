@@ -3,6 +3,7 @@ import { fn } from 'storybook/test'
 import { Dropdown } from './Dropdown'
 import changelog from './Dropdown.changelog.md?raw'
 import pkg from '../../../package.json'
+import { useState } from 'react'
 
 const meta = {
     title: 'Components/Dropdown',
@@ -35,7 +36,23 @@ const sampleOptions = [
     { label: 'Option 3', value: '3' },
 ]
 
+const StatefulDropdown = (args: React.ComponentProps<typeof Dropdown>) => {
+    const [value, setValue] = useState(args.value || '')
+
+    return (
+        <Dropdown
+            {...args}
+            value={value}
+            onChange={(newValue) => {
+                setValue(newValue)
+                args.onChange?.(newValue)
+            }}
+        />
+    )
+}
+
 export const Primary: Story = {
+    render: (args) => <StatefulDropdown {...args} />,
     args: {
         id: 'primary-dropdown',
         testId: 'primary-dropdown',
@@ -45,6 +62,7 @@ export const Primary: Story = {
 }
 
 export const Secondary: Story = {
+    render: (args) => <StatefulDropdown {...args} />,
     args: {
         id: 'secondary-dropdown',
         testId: 'secondary-dropdown',
@@ -57,9 +75,9 @@ export const Sizes: Story = {
     render: (args) => {
         return (
             <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-                <Dropdown {...args} id='small-dropdown' size='small' />
-                <Dropdown {...args} id='medium-dropdown' size='medium' />
-                <Dropdown {...args} id='large-dropdown' size='large' />
+                <StatefulDropdown {...args} id='small-dropdown' size='small' />
+                <StatefulDropdown {...args} id='medium-dropdown' size='medium' />
+                <StatefulDropdown {...args} id='large-dropdown' size='large' />
             </div>
         )
     },
@@ -74,6 +92,7 @@ export const Sizes: Story = {
 }
 
 export const WithDefaultValue: Story = {
+    render: (args) => <StatefulDropdown {...args} />,
     args: {
         id: 'default-value-dropdown',
         testId: 'default-value-dropdown',
