@@ -42,3 +42,11 @@ export const Secondary: Story = {
         primary: false
     },
 }
+
+export const NumberInput: Story = {
+    args: {
+        id: 'input-number',
+        testId: 'input-number',
+        type: 'number',
+    }
+}
