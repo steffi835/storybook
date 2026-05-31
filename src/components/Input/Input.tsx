@@ -9,6 +9,7 @@ export interface InputProps {
     placeholder?: string
     primary?: boolean
     size?: 'small' | 'medium' | 'large'
+    type?: string
     value?: string
 }
 
@@ -20,6 +21,7 @@ export const Input = (props: InputProps) => {
         placeholder = 'Enter',
         primary = true,
         size = 'medium',
+        type = 'text',
         value
     } = props
     const mode = primary ? 'input-primary' : 'input-secondary'
@@ -30,7 +32,7 @@ export const Input = (props: InputProps) => {
             data-testid={testId}
             className={['input', `input-${size}`, mode].join(' ')}
             placeholder={placeholder}
-            type='text'
+            type={type}
             value={value}
             onChange={onChange}
         />
