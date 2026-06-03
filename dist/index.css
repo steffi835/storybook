@@ -1,0 +1,28 @@
+/* src/components/Button/button.css */
+.button {
+  display: inline-block;
+  cursor: pointer;
+  border: 0;
+  border-radius: 0.3em;
+  font-weight: 500;
+  line-height: 1;
+  font-family:
+    "Nunito Sans",
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+}
+.button-primary {
+  background-color: #ffdbea;
+  color: #ff3092;
+}
+.button-secondary {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+  background-color: transparent;
+  color: #333;
+}
+.button-medium {
+  padding: 12px 25px;
+  font-size: 14px;
+}
