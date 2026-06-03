@@ -8,7 +8,6 @@
     "scripts": {
         "dev": "vite",
         "build": "tsup src/index.ts --format cjs,esm --dts --inject-style",
-        "prepare": "npm run build",
         "lint": "eslint .",
         "preview": "vite preview",
         "storybook": "storybook dev -p 6006",
