@@ -1,7 +1,6 @@
 {
-    "name": "storybook-lib",
-    "private": true,
-    "version": "1.0.0",
+    "name": "@steffi835/storybook-lib",
+    "version": "1.0.1",
     "type": "module",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
@@ -13,7 +12,17 @@
         "storybook": "storybook dev -p 6006",
         "build-storybook": "storybook build"
     },
-    "dependencies": {
+    "exports": {
+        ".": {
+            "import": "./dist/index.js",
+            "require": "./dist/index.cjs",
+            "types": "./dist/index.d.ts"
+        }
+    },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com"
+    },
+    "peerDependencies": {
         "react": "^19.2.5",
         "react-dom": "^19.2.5"
     },
@@ -37,6 +46,8 @@
         "eslint-plugin-storybook": "^10.4.0",
         "globals": "^17.5.0",
         "playwright": "^1.59.1",
+        "react": "^19.2.5",
+        "react-dom": "^19.2.5",
         "storybook": "^10.4.0",
         "tsup": "^8.5.1",
         "typescript": "~6.0.2",
