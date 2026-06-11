@@ -9,6 +9,7 @@ interface DropdownOption {
 export interface DropdownProps {
     id: string
     testId: string
+    name: string
     
     options: DropdownOption[]
     onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
@@ -23,6 +24,7 @@ export const Dropdown = (props: DropdownProps) => {
     const {
         id,
         testId,
+        name,
         options,
         primary = true,
         placeholder = 'Select',
@@ -72,7 +74,14 @@ export const Dropdown = (props: DropdownProps) => {
                                 option.value === value ? 'active' : ''
                             }`}
                             onClick={() => {
-                                onChange?.({ target: { value: option.value } } as React.ChangeEvent<HTMLSelectElement>)
+                                const event = {
+                                    target: {
+                                        name,
+                                        value: option.value
+                                    }
+                                } as React.ChangeEvent<HTMLSelectElement>
+
+                                onChange(event)
                                 setOpen(false)
                             }}
                         >
