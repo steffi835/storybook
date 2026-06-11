@@ -56,6 +56,7 @@ export const Primary: Story = {
     args: {
         id: 'primary-dropdown',
         testId: 'primary-dropdown',
+        name: 'primary-dropdown',
         primary: true,
         options: sampleOptions
     },
@@ -66,6 +67,7 @@ export const Secondary: Story = {
     args: {
         id: 'secondary-dropdown',
         testId: 'secondary-dropdown',
+        name: 'secondary-dropdown',
         primary: false,
         options: sampleOptions,
     },
@@ -84,6 +86,7 @@ export const Sizes: Story = {
     args: {
         id: 'sizes-dropdown',
         testId: 'sizes-dropdown',
+        name: 'sizes-dropdown',
         options: sampleOptions,
     },
     argTypes: {
@@ -96,6 +99,7 @@ export const WithDefaultValue: Story = {
     args: {
         id: 'default-value-dropdown',
         testId: 'default-value-dropdown',
+        name: 'default-value-dropdown',
         options: sampleOptions,
         value: '2',
     },
