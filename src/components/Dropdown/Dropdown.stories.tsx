@@ -43,9 +43,9 @@ const StatefulDropdown = (args: React.ComponentProps<typeof Dropdown>) => {
         <Dropdown
             {...args}
             value={value}
-            onChange={(newValue) => {
-                setValue(newValue)
-                args.onChange?.(newValue)
+            onChange={(e) => {
+                setValue(e.target.value)
+                args.onChange?.(e)
             }}
         />
     )
