@@ -210,6 +210,7 @@ var Dropdown = (props) => {
   const {
     id,
     testId,
+    name,
     options,
     primary = true,
     placeholder = "Select",
@@ -252,7 +253,13 @@ var Dropdown = (props) => {
           {
             className: `dropdown-item ${option.value === value ? "active" : ""}`,
             onClick: () => {
-              onChange?.(option.value);
+              const event = {
+                target: {
+                  name,
+                  value: option.value
+                }
+              };
+              onChange(event);
               setOpen(false);
             },
             children: [

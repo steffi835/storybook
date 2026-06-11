@@ -19,12 +19,13 @@ interface DropdownOption {
 interface DropdownProps {
     id: string;
     testId: string;
+    name: string;
     options: DropdownOption[];
+    onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
     placeholder?: string;
     primary?: boolean;
     size?: 'small' | 'medium' | 'large';
     value?: string;
-    onChange?: (value: string) => void;
 }
 declare const Dropdown: (props: DropdownProps) => react_jsx_runtime.JSX.Element;
 
