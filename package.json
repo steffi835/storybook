@@ -1,6 +1,6 @@
 {
-    "name": "@steffi835/storybook-lib",
-    "version": "1.0.1",
+    "name": "storybook-lib",
+    "version": "1.0.2",
     "type": "module",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
