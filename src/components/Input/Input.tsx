@@ -1,4 +1,4 @@
-import './input.css'
+import styles from './input.module.css'
 
 export interface InputProps {
     id: string
@@ -24,13 +24,13 @@ export const Input = (props: InputProps) => {
         type = 'text',
         value
     } = props
-    const mode = primary ? 'input-primary' : 'input-secondary'
+    const mode = primary ? styles.primary : styles.secondary
 
     return (
         <input
             id={id}
             data-testid={testId}
-            className={['input', `input-${size}`, mode].join(' ')}
+            className={[styles.base, styles[size], mode].join(' ')}
             placeholder={placeholder}
             type={type}
             value={value}
