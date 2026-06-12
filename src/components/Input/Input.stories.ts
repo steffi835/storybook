@@ -21,8 +21,9 @@ ${changelog}
         }
     },
     tags: ['autodocs'],
-    argTypes: {},
-    args: { onChange: fn() },
+    args: {
+        onChange: fn()
+    },
 } satisfies Meta<typeof Input>
 
 export default meta;
