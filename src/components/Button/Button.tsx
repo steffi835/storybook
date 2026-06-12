@@ -1,4 +1,4 @@
-import './button.css'
+import styles from './button.module.css'
 
 export interface ButtonProps {
     id: string
@@ -24,13 +24,13 @@ export const Button = (props: ButtonProps) => {
         primary = true,
         size = 'medium'
     } = props
-    const mode = primary ? 'button-primary' : 'button-secondary'
+    const mode = primary ? styles.primary : styles.secondary
 
     return (
         <button
             id={id}
             data-testid={testId}
-            className={['button', `button-${size}`, mode].join(' ')}
+            className={[styles.base, styles[size], mode].join(' ')}
             disabled={disabled}
             style={{ backgroundColor }}
             type='button'
