@@ -55,8 +55,6 @@ export const Primary: Story = {
     render: (args) => <StatefulDropdown {...args} />,
     args: {
         id: 'primary-dropdown',
-        testId: 'primary-dropdown',
-        name: 'primary-dropdown',
         primary: true,
         options: sampleOptions
     },
@@ -66,31 +64,8 @@ export const Secondary: Story = {
     render: (args) => <StatefulDropdown {...args} />,
     args: {
         id: 'secondary-dropdown',
-        testId: 'secondary-dropdown',
-        name: 'secondary-dropdown',
         primary: false,
         options: sampleOptions,
-    },
-}
-
-export const Sizes: Story = {
-    render: (args) => {
-        return (
-            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-                <StatefulDropdown {...args} id='small-dropdown' size='small' />
-                <StatefulDropdown {...args} id='medium-dropdown' size='medium' />
-                <StatefulDropdown {...args} id='large-dropdown' size='large' />
-            </div>
-        )
-    },
-    args: {
-        id: 'sizes-dropdown',
-        testId: 'sizes-dropdown',
-        name: 'sizes-dropdown',
-        options: sampleOptions,
-    },
-    argTypes: {
-        size: { table: { disable: true } }
     },
 }
 
@@ -98,8 +73,6 @@ export const WithDefaultValue: Story = {
     render: (args) => <StatefulDropdown {...args} />,
     args: {
         id: 'default-value-dropdown',
-        testId: 'default-value-dropdown',
-        name: 'default-value-dropdown',
         options: sampleOptions,
         value: '2',
     },
@@ -109,8 +82,6 @@ export const WithLabel: Story = {
     render: (args) => <StatefulDropdown {...args} />,
     args: {
         id: 'label-dropdown',
-        testId: 'label-dropdown',
-        name: 'label-dropdown',
         options: sampleOptions,
         label: 'Label',
     },
