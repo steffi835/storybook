@@ -1,32 +1,33 @@
-.dropdown {
+.base {
     display: inline-block;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     position: relative;
 }
 
-.dropdown-label {
+.label {
     display: block;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     font-size: 12px;
     margin-bottom: 0.3rem;
 }
 
-.dropdown-trigger {
+.trigger {
     align-items: center;
     border: 0.5px solid;
     border-radius: 5px;
     cursor: pointer;
     display: flex;
+    font-size: 14px;
     font-weight: 500;
     justify-content: space-between;
     gap: 12px;
     line-height: 1;
-    padding: 12px 40px 12px 16px;
+    padding: 12px 18px;
     transition: all 0.2s ease;
     width: 100%;
 }
 
-.dropdown-trigger::after {
+.trigger::after {
     background:
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 4.5L6 8l3.5-3.5' stroke='%23666' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E")
         no-repeat center;
@@ -35,7 +36,7 @@
     width: 12px;
 }
 
-.dropdown-menu {
+.menu {
     background-color: #fff;
     border: 0.5px solid;
     border-radius: 10px;
@@ -49,125 +50,97 @@
     z-index: 1000;
 }
 
-.dropdown-item {
+.item {
     align-items: center;
     border-radius: 4px;
     cursor: pointer;
     display: flex;
+    font-size: 14px;
     font-weight: 500;
     gap: 8px;
+    padding: 10px 12px;
     transition: all 0.2s ease;
 }
 
-.dropdown-primary .dropdown-trigger {
+.primary .trigger {
     background-color: #fff;
     border-color: #d9d9d9;
     color: #333;
 }
 
-.dropdown-primary .dropdown-trigger:hover {
+.primary .trigger:hover {
     background-color: #fafafa;
     border-color: #bfbfbf;
 }
 
-.dropdown-primary .dropdown-trigger:focus {
+.primary .trigger:focus {
     border-color: #999999;
     box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.06);
 }
 
-.dropdown-primary .dropdown-menu {
+.primary .menu {
     background-color: #ffffff;
     border-color: #d9d9d9;
 }
 
-.dropdown-primary .dropdown-item {
+.primary .item {
     color: #333333;
 }
 
-.dropdown-primary .dropdown-item:hover {
+.primary .item:hover {
     background-color: #f5f5f5;
 }
 
-.dropdown-primary .dropdown-item.active {
+.primary .item.active {
     background-color: #eeeeee;
     color: #111111;
 }
 
-.dropdown-primary .check {
+.primary .check {
     color: #333333;
 }
 
-.dropdown-secondary .dropdown-trigger {
+.secondary .trigger {
     background-color: #fff7fa;
     border-color: #ffb3d1;
     color: #ff3092;
 }
 
-.dropdown-secondary .dropdown-trigger:hover {
+.secondary .trigger:hover {
     background-color: #ffeaf3;
     border-color: #ff8fc0;
 }
 
-.dropdown-secondary .dropdown-trigger:focus {
+.secondary .trigger:focus {
     border-color: #ff5ca8;
     box-shadow: 0 0 0 3px rgba(255, 48, 146, 0.15);
 }
 
-.dropdown-secondary .dropdown-trigger::after {
+.secondary .trigger::after {
     background:
         url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M2.5 4.5L6 8l3.5-3.5' stroke='%23ff3092' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E")
         no-repeat center;
 }
 
-.dropdown-secondary .dropdown-menu {
+.secondary .menu {
     background-color: #ffffff;
     border-color: #ffb3d1;
 }
 
-.dropdown-secondary .dropdown-item {
+.secondary .item {
     color: #ff3092;
 }
 
-.dropdown-secondary .dropdown-item:hover {
+.secondary .item:hover {
     background-color: #fff0f6;
 }
 
-.dropdown-secondary .dropdown-item.active {
+.secondary .item.active {
     background-color: #ffebf5;
     color: #ff0f7b;
 }
 
-.dropdown-secondary .check {
+.secondary .check {
     color: #ff3092;
     font-size: 12px;
-}
-
-.dropdown-small .dropdown-trigger {
-    font-size: 12px;
-    padding: 8px 14px;
-}
-
-.dropdown-medium .dropdown-trigger {
-    font-size: 14px;
-    padding: 12px 18px;
-}
-
-.dropdown-large .dropdown-trigger {
-    font-size: 16px;
-    padding: 16px 20px;
-}
-
-.dropdown-small .dropdown-item {
-    padding: 8px 10px;
-    font-size: 12px;
-}
-
-.dropdown-medium .dropdown-item {
-    padding: 10px 12px;
-    font-size: 14px;
-}
-
-.dropdown-large .dropdown-item {
-    padding: 12px 14px;
-    font-size: 16px;
 }
