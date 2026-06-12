@@ -1,4 +1,4 @@
-.button {
+.base {
     align-items: center;
     border: 0.5px solid transparent;
     border-radius: 5px;
@@ -12,37 +12,37 @@
     transition: all 0.2s ease;
 }
 
-.button-primary {
+.primary {
     background-color: #dfdede;
     box-shadow: none;
 }
 
-.button-primary:hover {
+.primary:hover {
     background-color: rgba(0, 0, 0, 0.05);
 }
 
-.button-secondary {
+.secondary {
     background-color: #ffdbea;
     border-color: currentColor;
     color: #ff3092;
 }
 
-.button-secondary:hover {
+.secondary:hover {
     background-color: #ff2c8f;
     color: #ffdbea;
 }
 
-.button-small {
+.small {
     font-size: 12px;
     padding: 8px 20px;
 }
 
-.button-medium {
+.medium {
     font-size: 14px;
     padding: 12px 25px;
 }
 
-.button-large {
+.large {
     font-size: 16px;
     padding: 16px 30px;
 }
