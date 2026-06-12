@@ -10,37 +10,37 @@
     transition: all 0.2s ease;
 }
 
-.input-primary {
+.primary {
     color: #333;
 }
 
-.input-primary:focus {
+.primary:focus {
     border-color: #999;
     box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
 }
 
-.input-primary::placeholder {
+.primary::placeholder {
     color: #999;
     font-weight: 400;
 }
 
-.input-secondary {
+.secondary {
     background-color: #fff7fa;
     border-color: #ffb3d1;
     color: #ff3092;
 }
 
-.input-secondary:focus {
+.secondary:focus {
     border-color: #ff3092;
     box-shadow: 0 0 0 3px rgba(255, 48, 146, 0.12);
 }
 
-.input-secondary::placeholder {
+.secondary::placeholder {
     color: #ff3092;
     font-weight: 400;
 }
 
-.input-medium {
+.medium {
     padding: 12px 25px;
     font-size: 14px;
 }
