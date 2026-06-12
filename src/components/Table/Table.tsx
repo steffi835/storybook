@@ -1,4 +1,4 @@
-import './table.css'
+import styles from './table.module.css'
 
 export interface TableColumn<T> {
     key: keyof T
@@ -31,21 +31,21 @@ export const Table = <T extends Record<string, unknown>>(props: TableProps<T>) =
         striped = false
     } = props
 
-    const mode = primary ? 'table-primary' : 'table-secondary'
-    const cardMode = primary ? 'table-card-primary' : 'table-card-secondary'
+    const mode = primary ? styles.primary : styles.secondary
+    const cardMode = primary ? styles['table-card-primary'] : styles['table-card-secondary']
 
     return (
-        <div className={['table-card', cardMode].join(' ')}>
-            <div className='table-wrapper'>
+        <div className={[styles['table-card'], cardMode].join(' ')}>
+            <div className={styles['table-wrapper']}>
                 <table
                     id={id}
                     data-testid={testId}
                     className={[
-                        'table',
-                        `table-${size}`,
+                        styles.table,
+                        styles[`table-${size}`],
                         mode,
-                        striped ? 'table-striped' : '',
-                        hover ? 'table-hover' : ''
+                        striped ? styles['table-striped'] : '',
+                        hover ? styles['table-hover'] : ''
                     ].join(' ')}
                 >
                     <thead>
