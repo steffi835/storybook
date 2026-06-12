@@ -24,7 +24,9 @@ ${changelog}
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    args: { onClick: fn() },
+    args: {
+        onClick: fn()
+    },
 } satisfies Meta<typeof Button>
 
 export default meta;
