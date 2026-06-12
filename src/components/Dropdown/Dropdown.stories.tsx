@@ -104,3 +104,14 @@ export const WithDefaultValue: Story = {
         value: '2',
     },
 }
+
+export const WithLabel: Story = {
+    render: (args) => <StatefulDropdown {...args} />,
+    args: {
+        id: 'label-dropdown',
+        testId: 'label-dropdown',
+        name: 'label-dropdown',
+        options: sampleOptions,
+        label: 'Label',
+    },
+}
