@@ -14,6 +14,7 @@ export interface DropdownProps {
     options: DropdownOption[]
     onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
 
+    label?: string
     placeholder?: string
     primary?: boolean
     size?: 'small' | 'medium' | 'large'
@@ -27,6 +28,7 @@ export const Dropdown = (props: DropdownProps) => {
         name,
         options,
         primary = true,
+        label,
         placeholder = 'Select',
         size = 'medium',
         value,
@@ -51,46 +53,48 @@ export const Dropdown = (props: DropdownProps) => {
     }, [])
 
     return (
-        <div
-            id={id}
-            data-testid={testId}
-            className={['dropdown', `dropdown-${size}`, mode].join(' ')}
-            ref={ref}
-        >
-            <button
-                type="button"
-                className="dropdown-trigger"
-                onClick={() => setOpen(prev => !prev)}
+        <>
+            <label htmlFor={id} className="dropdown-label">
+                {label}
+            </label>
+            <div
+                id={id}
+                data-testid={testId}
+                className={['dropdown', `dropdown-${size}`, mode].join(' ')}
+                ref={ref}
             >
-                {selected?.label || placeholder}
-            </button>
+                <button
+                    type="button"
+                    className="dropdown-trigger"
+                    onClick={() => setOpen(prev => !prev)}
+                >
+                    {selected?.label || placeholder}
+                </button>
+                {open && (
+                    <ul className="dropdown-menu">
+                        {options.map(option => (
+                            <li
+                                key={option.value}
+                                className={`dropdown-item ${option.value === value ? 'active' : ''}`}
+                                onClick={() => {
+                                    const event = {
+                                        target: {
+                                            name,
+                                            value: option.value
+                                        }
+                                    } as React.ChangeEvent<HTMLSelectElement>
 
-            {open && (
-                <ul className="dropdown-menu">
-                    {options.map(option => (
-                        <li
-                            key={option.value}
-                            className={`dropdown-item ${
-                                option.value === value ? 'active' : ''
-                            }`}
-                            onClick={() => {
-                                const event = {
-                                    target: {
-                                        name,
-                                        value: option.value
-                                    }
-                                } as React.ChangeEvent<HTMLSelectElement>
-
-                                onChange(event)
-                                setOpen(false)
-                            }}
-                        >
-                            {option.value === value && <span className="check">✓</span>}
-                            {option.label}
-                        </li>
-                    ))}
-                </ul>
-            )}
-        </div>
+                                    onChange(event)
+                                    setOpen(false)
+                                }}
+                            >
+                                {option.value === value && <span className="check">✓</span>}
+                                {option.label}
+                            </li>
+                        ))}
+                    </ul>
+                )}
+            </div>
+        </>
     )
 }
