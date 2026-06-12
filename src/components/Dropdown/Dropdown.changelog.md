@@ -1,4 +1,4 @@
 ### Changelog
 
 - **v1.0.0** – Create component
-- **v1.0.1** – Add **`name`** attribute
+- **v1.1.0** – Add **`name`** attribute
