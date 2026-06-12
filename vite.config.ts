@@ -22,7 +22,7 @@ export default defineConfig({
     lib: {
       entry: path.resolve(dirname, 'src/index.ts'),
       name: 'storybook-lib',
-      formats: ['es', 'cjs'],
+      formats: ['es'],
       fileName: (format) => format === 'es' ? 'index.js' : 'index.cjs'
     },
     rollupOptions: {
