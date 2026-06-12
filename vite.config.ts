@@ -7,11 +7,28 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
 import { playwright } from '@vitest/browser-playwright';
+import dts from 'vite-plugin-dts'
 const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url));
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    dts({
+      insertTypesEntry: true
+    })
+  ],
+  build: {
+    lib: {
+      entry: path.resolve(dirname, 'src/index.ts'),
+      name: 'storybook-lib',
+      formats: ['es', 'cjs'],
+      fileName: (format) => format === 'es' ? 'index.js' : 'index.cjs'
+    },
+    rollupOptions: {
+      external: ['react', 'react-dom'],
+    }
+  },
   test: {
     projects: [{
       extends: true,
