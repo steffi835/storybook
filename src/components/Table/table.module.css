@@ -3,23 +3,23 @@ body {
 }
 
 /* CARD */
-.table-card {
+.card {
     border-radius: 5px;
     overflow: hidden;
     transition: all 0.2s ease;
 }
 
-.table-card-primary {
+.card-primary {
     border: 0.5px solid #d9d9d9;
 }
 
-.table-card-secondary {
+.card-secondary {
     background: #fff7fa;
     border: 0.5px solid #ffb3d1;
 }
 
 /* WRAPPER */
-.table-wrapper {
+.wrapper {
     overflow-x: auto;
     width: 100%;
 }
@@ -33,59 +33,59 @@ body {
     width: 100%;
 }
 
-.table-primary {
+.primary {
     background: #fff;
     color: #333;
 }
 
-.table-primary thead tr {
+.primary thead tr {
     border-bottom: 2px solid #d9d9d9;
 }
 
-.table-primary th {
+.primary th {
     background: #fff;
     color: #666;
     font-weight: 600;
 }
 
-.table-primary td {
+.primary td {
     border-bottom: 1px solid #f0f0f0;
     color: #333;
 }
 
-.table-primary.table-hover tbody tr:hover {
+.primary.hover tbody tr:hover {
     background: #fafafa;
 }
 
-.table-primary.table-striped tbody tr:nth-child(even) {
+.primary.striped tbody tr:nth-child(even) {
     background: #fcfcfc;
 }
 
-.table-secondary {
+.secondary {
     background: #fff7fa;
     color: #ff3092;
 }
 
-.table-secondary thead tr {
+.secondary thead tr {
     border-bottom: 1px solid #ffb3d1;
 }
 
-.table-secondary th {
+.secondary th {
     background: #ffdde9;
     color: #ff3092;
     font-weight: 600;
 }
 
-.table-secondary td {
+.secondary td {
     border-bottom: 1px solid #ffd6e7;
     color: #ff3092;
 }
 
-.table-secondary.table-hover tbody tr:hover {
+.secondary.hover tbody tr:hover {
     background: #fff0f6;
 }
 
-.table-secondary.table-striped tbody tr:nth-child(even) {
+.secondary.striped tbody tr:nth-child(even) {
     background: #fffafd;
 }
 
@@ -111,20 +111,20 @@ body {
 }
 
 /* SIZES */
-.table-small th,
-.table-small td {
+.small th,
+.small td {
     font-size: 12px;
     padding: 10px 14px;
 }
 
-.table-medium th,
-.table-medium td {
+.medium th,
+.medium td {
     font-size: 14px;
     padding: 14px 16px;
 }
 
-.table-large th,
-.table-large td {
+.large th,
+.large td {
     font-size: 16px;
     padding: 18px 20px;
 }
