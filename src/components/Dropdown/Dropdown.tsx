@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import './dropdown.css'
+import styles from './dropdown.module.css'
 
 interface DropdownOption {
     label: string
@@ -8,8 +8,6 @@ interface DropdownOption {
 
 export interface DropdownProps {
     id: string
-    testId: string
-    name: string
     
     options: DropdownOption[]
     onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
@@ -17,20 +15,16 @@ export interface DropdownProps {
     label?: string
     placeholder?: string
     primary?: boolean
-    size?: 'small' | 'medium' | 'large'
     value?: string
 }
 
 export const Dropdown = (props: DropdownProps) => {
     const {
         id,
-        testId,
-        name,
         options,
         primary = true,
         label,
         placeholder = 'Select',
-        size = 'medium',
         value,
         onChange
     } = props
@@ -39,7 +33,7 @@ export const Dropdown = (props: DropdownProps) => {
 
     const selected = options.find(o => o.value === value)
 
-    const mode = primary ? 'dropdown-primary' : 'dropdown-secondary'
+    const mode = primary ? `${styles.primary}` : `${styles.secondary}`
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -54,32 +48,32 @@ export const Dropdown = (props: DropdownProps) => {
 
     return (
         <>
-            <label htmlFor={id} className="dropdown-label">
+            <label htmlFor={id} className={styles.label}>
                 {label}
             </label>
             <div
                 id={id}
-                data-testid={testId}
-                className={['dropdown', `dropdown-${size}`, mode].join(' ')}
+                data-testid={id}
+                className={`${styles.base} ${mode}`}
                 ref={ref}
             >
                 <button
-                    type="button"
-                    className="dropdown-trigger"
+                    type='button'
+                    className={styles.trigger}
                     onClick={() => setOpen(prev => !prev)}
                 >
                     {selected?.label || placeholder}
                 </button>
                 {open && (
-                    <ul className="dropdown-menu">
+                    <ul className={styles.menu}>
                         {options.map(option => (
                             <li
                                 key={option.value}
-                                className={`dropdown-item ${option.value === value ? 'active' : ''}`}
+                                className={`${styles.item} ${option.value === value ? styles.active : ''}`}
                                 onClick={() => {
                                     const event = {
                                         target: {
-                                            name,
+                                            name: id,
                                             value: option.value
                                         }
                                     } as React.ChangeEvent<HTMLSelectElement>
@@ -88,7 +82,7 @@ export const Dropdown = (props: DropdownProps) => {
                                     setOpen(false)
                                 }}
                             >
-                                {option.value === value && <span className="check">✓</span>}
+                                {option.value === value && <span className={styles.check}>✓</span>}
                                 {option.label}
                             </li>
                         ))}
