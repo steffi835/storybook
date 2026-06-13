@@ -2,13 +2,14 @@ import styles from './input.module.css'
 
 export interface InputProps {
     id: string
-    testId: string
 
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 
+    error?: string
+    label?: string
+    mandatory?: boolean
     placeholder?: string
     primary?: boolean
-    size?: 'small' | 'medium' | 'large'
     type?: string
     value?: string
 }
@@ -16,25 +17,43 @@ export interface InputProps {
 export const Input = (props: InputProps) => {
     const {
         id,
-        testId,
         onChange,
+        error,
+        label,
+        mandatory = false,
         placeholder = 'Enter',
         primary = true,
-        size = 'medium',
         type = 'text',
         value
     } = props
     const mode = primary ? styles.primary : styles.secondary
 
     return (
-        <input
-            id={id}
-            data-testid={testId}
-            className={[styles.base, styles[size], mode].join(' ')}
-            placeholder={placeholder}
-            type={type}
-            value={value}
-            onChange={onChange}
-        />
+        <>
+            {label && (
+                <label htmlFor={id} className={styles.label}>
+                    {label}
+                    {mandatory && <span className={styles.mandatory}> *</span>}
+                </label>
+            )}
+            <input
+                id={id}
+                data-testid={id}
+                className={`${styles.base} ${mode}`}
+                placeholder={placeholder}
+                type={type}
+                value={value}
+                onChange={onChange}
+            />
+            {error && (
+                <div
+                    className={styles.errorMessage}
+                    role='alert'
+                    aria-live='polite'
+                >
+                    {error}
+                </div>
+            )}
+        </>
     )
 }
