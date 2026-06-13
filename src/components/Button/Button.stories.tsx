@@ -32,21 +32,18 @@ ${changelog}
 export default meta;
 type Story = StoryObj<typeof meta>
 
-export const Primary: Story = {
-    args: {
-        id: 'primary-button',
-        testId: 'primary-button',
-        primary: true,
-        label: 'Button',
+export const Variants: Story = {
+    render: (args) => {
+        return (
+            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                <Button {...args} id='primary' label='Primary' />
+                <Button {...args} id='secondary' label='Secondary' primary={false} />
+            </div>
+        )
     },
-}
-
-export const Secondary: Story = {
     args: {
-        id: 'secondary-button',
-        testId: 'secondary-button',
-        primary: false,
-        label: 'Button',
+        id: 'variants',
+        label: 'Button'
     },
 }
 
@@ -54,15 +51,14 @@ export const Sizes: Story = {
     render: (args) => {
         return (
             <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-                <Button {...args} id='small-button' size='small' label='Small' />
-                <Button {...args} id='medium-button' size='medium' label='Medium' />
-                <Button {...args} id='large-button' size='large' label='Large' />
+                <Button {...args} id='small' size='small' label='Small' />
+                <Button {...args} id='medium' size='medium' label='Medium' />
+                <Button {...args} id='large' size='large' label='Large' />
             </div>
         )
     },
     args: {
-        id: 'sizes-button',
-        testId: 'sizes-button',
+        id: 'sizes',
         label: 'Button'
     },
     argTypes: {
