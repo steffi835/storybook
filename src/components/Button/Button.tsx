@@ -2,7 +2,6 @@ import styles from './button.module.css'
 
 export interface ButtonProps {
     id: string
-    testId: string
     
     label: string
     onClick: () => void
@@ -16,7 +15,6 @@ export interface ButtonProps {
 export const Button = (props: ButtonProps) => {
     const {
         id,
-        testId,
         label,
         onClick,
         backgroundColor,
@@ -29,11 +27,11 @@ export const Button = (props: ButtonProps) => {
     return (
         <button
             id={id}
-            data-testid={testId}
+            data-testid={id}
+            type='button'
             className={[styles.base, styles[size], mode].join(' ')}
             disabled={disabled}
             style={{ backgroundColor }}
-            type='button'
             onClick={onClick}
         >
             {label}
