@@ -37,7 +37,7 @@ export const Dropdown = (props: DropdownProps) => {
 
     const selected = options.find(o => o.value === value)
 
-    const mode = primary ? `${styles.primary}` : `${styles.secondary}`
+    const mode = primary ? styles.primary : styles.secondary
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
