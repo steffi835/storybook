@@ -1,6 +1,5 @@
 export interface ButtonProps {
     id: string;
-    testId: string;
     label: string;
     onClick: () => void;
     backgroundColor?: string;
@@ -8,4 +7,4 @@ export interface ButtonProps {
     primary?: boolean;
     size?: 'small' | 'medium' | 'large';
 }
-export declare const Button: (props: ButtonProps) => import("react/jsx-runtime").JSX.Element;
+export declare const Button: (props: ButtonProps) => import("react").JSX.Element;
