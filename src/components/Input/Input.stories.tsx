@@ -29,25 +29,44 @@ ${changelog}
 export default meta;
 type Story = StoryObj<typeof meta>
 
-export const Primary: Story = {
+export const Variants: Story = {
+    render: (args) => (
+        <div style={{ display: 'flex', gap: '1rem' }}>
+            <Input {...args} id='primary' />
+            <Input {...args} id='secondary' primary={false} />
+        </div>
+    ),
     args: {
-        id: 'input-primary',
-        testId: 'input-primary'
-    },
+        id: 'variants',
+    }
 }
 
-export const Secondary: Story = {
+export const Number: Story = {
     args: {
-        id: 'input-secondary',
-        testId: 'input-secondary',
-        primary: false
-    },
-}
-
-export const NumberInput: Story = {
-    args: {
-        id: 'input-number',
-        testId: 'input-number',
+        id: 'number',
         type: 'number',
     }
+}
+
+export const Label: Story = {
+    args: {
+        id: 'label',
+        label: 'Label',
+    },
+}
+
+export const Mandatory: Story = {
+    args: {
+        id: 'mandatory',
+        label: 'Label',
+        mandatory: true
+    },
+}
+
+export const Error: Story = {
+    args: {
+        id: 'error',
+        label: 'Label',
+        error: 'This is an error message'
+    },
 }
