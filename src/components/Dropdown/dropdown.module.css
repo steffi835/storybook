@@ -37,7 +37,7 @@
 }
 
 .menu {
-    background-color: #fff;
+    background-color: #ffffff;
     border: 0.5px solid;
     border-radius: 10px;
     left: 0;
@@ -62,6 +62,24 @@
     transition: all 0.2s ease;
 }
 
+.mandatory {
+    color: red;
+    font-weight: 600;
+}
+
+.errorState .trigger {
+    border: 1px solid #d32f2f;
+}
+
+.errorMessage {
+    color: #d32f2f;
+    font-size: 9px;
+    font-style: italic;
+    line-height: 16px;
+    margin-top: 4px;
+}
+
+/* Primary */
 .primary .trigger {
     background-color: #fff;
     border-color: #d9d9d9;
@@ -79,7 +97,6 @@
 }
 
 .primary .menu {
-    background-color: #ffffff;
     border-color: #d9d9d9;
 }
 
@@ -96,10 +113,7 @@
     color: #111111;
 }
 
-.primary .check {
-    color: #333333;
-}
-
+/* Secondary */
 .secondary .trigger {
     background-color: #fff7fa;
     border-color: #ffb3d1;
@@ -123,7 +137,6 @@
 }
 
 .secondary .menu {
-    background-color: #ffffff;
     border-color: #ffb3d1;
 }
 
@@ -140,7 +153,6 @@
     color: #ff0f7b;
 }
 
-.secondary .check {
+.secondary .label {
     color: #ff3092;
-    font-size: 12px;
 }
