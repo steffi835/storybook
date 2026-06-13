@@ -9,3 +9,4 @@
   - Add **`error`** and **`mandatory`** attribute
   - Add feature - Auto select when there's only one option and the field is mandatory
   - Refactor component
+- **v1.4.1** - 14 Jun 2026 - Refactor component
