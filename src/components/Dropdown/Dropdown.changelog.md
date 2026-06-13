@@ -5,3 +5,7 @@
 - **v1.2.0** - 12 Jun 2026 - Add **`label`** attribute
 - **v1.3.0** - 12 Jun 2026 - Remove **`data-testid`**, **`name`** and **`size`** attribute
 - **v1.3.1** - 12 Jun 2026 - Refactor component
+- **v1.4.0** - 13 Jun 2026
+  - Add **`error`** and **`mandatory`** attribute
+  - Add feature - Auto select when there's only one option and the field is mandatory
+  - Refactor component

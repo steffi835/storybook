@@ -51,38 +51,48 @@ const StatefulDropdown = (args: React.ComponentProps<typeof Dropdown>) => {
     )
 }
 
-export const Primary: Story = {
-    render: (args) => <StatefulDropdown {...args} />,
+export const Variants: Story = {
+    render: (args) => (
+        <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
+            <div>
+                <StatefulDropdown {...args} primary={true} label="Primary" />
+            </div>
+            <div>
+                <StatefulDropdown {...args} primary={false} label="Secondary" />
+            </div>
+        </div>
+    ),
     args: {
-        id: 'primary-dropdown',
-        primary: true,
+        id: 'variants',
         options: sampleOptions
     },
 }
 
-export const Secondary: Story = {
+export const Label: Story = {
     render: (args) => <StatefulDropdown {...args} />,
     args: {
-        id: 'secondary-dropdown',
-        primary: false,
-        options: sampleOptions,
-    },
-}
-
-export const WithDefaultValue: Story = {
-    render: (args) => <StatefulDropdown {...args} />,
-    args: {
-        id: 'default-value-dropdown',
-        options: sampleOptions,
-        value: '2',
-    },
-}
-
-export const WithLabel: Story = {
-    render: (args) => <StatefulDropdown {...args} />,
-    args: {
-        id: 'label-dropdown',
+        id: 'label',
         options: sampleOptions,
         label: 'Label',
+    },
+}
+
+export const Mandatory: Story = {
+    render: (args) => <StatefulDropdown {...args} />,
+    args: {
+        id: 'mandatory',
+        options: sampleOptions,
+        label: 'Label',
+        mandatory: true
+    },
+}
+
+export const Error: Story = {
+    render: (args) => <StatefulDropdown {...args} />,
+    args: {
+        id: 'error',
+        options: sampleOptions,
+        label: 'Label',
+        error: 'This is an error message'
     },
 }
