@@ -12,7 +12,9 @@ export interface DropdownProps {
     options: DropdownOption[]
     onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
 
+    error?: string
     label?: string
+    mandatory?: boolean
     placeholder?: string
     primary?: boolean
     value?: string
@@ -23,10 +25,12 @@ export const Dropdown = (props: DropdownProps) => {
         id,
         options,
         primary = true,
+        onChange,
+        error,
         label,
+        mandatory = false,
         placeholder = 'Select',
-        value,
-        onChange
+        value
     } = props
     const [open, setOpen] = useState(false)
     const ref = useRef<HTMLDivElement>(null)
@@ -46,49 +50,75 @@ export const Dropdown = (props: DropdownProps) => {
         return () => document.removeEventListener('mousedown', handleClickOutside)
     }, [])
 
-    return (
-        <>
-            <label htmlFor={id} className={styles.label}>
-                {label}
-            </label>
-            <div
-                id={id}
-                data-testid={id}
-                className={`${styles.base} ${mode}`}
-                ref={ref}
-            >
-                <button
-                    type='button'
-                    className={styles.trigger}
-                    onClick={() => setOpen(prev => !prev)}
-                >
-                    {selected?.label || placeholder}
-                </button>
-                {open && (
-                    <ul className={styles.menu}>
-                        {options.map(option => (
-                            <li
-                                key={option.value}
-                                className={`${styles.item} ${option.value === value ? styles.active : ''}`}
-                                onClick={() => {
-                                    const event = {
-                                        target: {
-                                            name: id,
-                                            value: option.value
-                                        }
-                                    } as React.ChangeEvent<HTMLSelectElement>
+    useEffect(() => {
+        if (options.length === 1 && mandatory) {
+            const onlyOption = options[0]
 
-                                    onChange(event)
-                                    setOpen(false)
-                                }}
-                            >
-                                {option.value === value && <span className={styles.check}>✓</span>}
-                                {option.label}
-                            </li>
-                        ))}
-                    </ul>
-                )}
-            </div>
-        </>
+            if (value !== onlyOption.value) {
+                const event = {
+                    target: {
+                        name: id,
+                        value: onlyOption.value
+                    }
+                } as React.ChangeEvent<HTMLSelectElement>
+
+                onChange(event)
+            }
+        }
+    }, [id, mandatory, options, value, onChange])
+
+    return (
+        <div
+            id={id}
+            data-testid={id}
+            className={`${styles.base} ${mode} ${error ? styles.errorState : ''}`}
+            ref={ref}
+        >
+            {label && (
+                <label htmlFor={id} className={styles.label}>
+                    {label}
+                    {mandatory && <span className={styles.mandatory}> *</span>}
+                </label>
+            )}
+            <button
+                type='button'
+                className={styles.trigger}
+                onClick={() => setOpen(prev => !prev)}
+            >
+                {selected?.label || placeholder}
+            </button>
+            {open && (
+                <ul className={styles.menu}>
+                    {options.map(option => (
+                        <li
+                            key={option.value}
+                            className={`${styles.item} ${option.value === value ? styles.active : ''}`}
+                            onClick={() => {
+                                const event = {
+                                    target: {
+                                        name: id,
+                                        value: option.value
+                                    }
+                                } as React.ChangeEvent<HTMLSelectElement>
+
+                                onChange(event)
+                                setOpen(false)
+                            }}
+                        >
+                            {option.label}
+                        </li>
+                    ))}
+                </ul>
+            )}
+            {error && (
+                <div
+                    className={styles.errorMessage}
+                    role='alert'
+                    aria-live='polite'
+                >
+                    {error}
+                </div>
+            )}
+        </div>
     )
 }
