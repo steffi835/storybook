@@ -1,0 +1,8 @@
+.base {
+    align-items: center;
+    color: #1f1f1f;
+    display: inline-flex;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 500;
+    line-height: 1;
+}
