@@ -3,6 +3,7 @@ import styles from './table.module.css'
 export interface TableColumn<T> {
     label: string
 
+    children?: TableColumn<T>[]
     key?: keyof T
     render?: (row: T) => React.ReactNode
 }
@@ -30,6 +31,7 @@ export const Table = <T extends Record<string, unknown>>(props: TableProps<T>) =
 
     const mode = primary ? styles.primary : styles.secondary
     const cardMode = primary ? styles['card-primary'] : styles['card-secondary']
+    const leafColumns = columns.flatMap((column) => column.children ? column.children : [column])
 
     return (
         <div className={[styles['card'], cardMode].join(' ')}>
@@ -46,24 +48,57 @@ export const Table = <T extends Record<string, unknown>>(props: TableProps<T>) =
                 >
                     <thead>
                         <tr>
-                            {columns.map((column, index) => (
-                                <th key={column.key ? String(column.key) : index}>
-                                    {column.label}
-                                </th>
-                            ))}
+                            {columns.map((column, index) => {
+                                if (column.children) {
+                                    return (
+                                        <th
+                                            key={index}
+                                            colSpan={column.children.length}
+                                        >
+                                            {column.label}
+                                        </th>
+                                    )
+                                }
+
+                                return (
+                                    <th
+                                        key={index}
+                                        rowSpan={2}
+                                    >
+                                        {column.label}
+                                    </th>
+                                )
+                            })}
+                        </tr>
+
+                        <tr>
+                            {columns.flatMap((column) =>
+                                column.children
+                                    ? column.children.map((child, childIndex) => (
+                                        <th key={`${column.label}-${childIndex}`}>
+                                            {child.label}
+                                        </th>
+                                    ))
+                                    : []
+                            )}
                         </tr>
                     </thead>
                     <tbody>
                         {data.map((row, rowIndex) => (
                             <tr key={rowIndex}>
-                                {columns.map((column, colIndex) => (
-                                    <td key={column.key ? String(column.key) : colIndex}>
+                                {leafColumns.map((column, colIndex) => (
+                                    <td
+                                        key={
+                                            column.key
+                                                ? String(column.key)
+                                                : colIndex
+                                        }
+                                    >
                                         {column.render
                                             ? column.render(row)
                                             : column.key
                                                 ? String(row[column.key])
-                                                : null
-                                        }
+                                                : null}
                                     </td>
                                 ))}
                             </tr>
