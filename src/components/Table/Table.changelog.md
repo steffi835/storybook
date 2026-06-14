@@ -6,3 +6,4 @@
   - Remove **`size`** attribute
   - Refactor component
 - **v1.2.0** - 14 Jun 2026 - Add **`children`** attribute
+- **v1.2.1** - 14 Jun 2026 - Enhanced component to support nested data field rendering
