@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Table } from './Table'
 import changelog from './Table.changelog.md?raw'
 import pkg from '../../../package.json'
+import { Button } from '../Button/Button'
 
 const sampleData = [
     {
@@ -46,7 +47,6 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
     args: {
         id: 'default-table',
-        testId: 'default-table',
         primary: true,
         columns: [
             {
@@ -69,7 +69,6 @@ export const Default: Story = {
 export const Secondary: Story = {
     args: {
         id: 'secondary-table',
-        testId: 'secondary-table',
         primary: false,
         columns: [
             {
@@ -92,7 +91,6 @@ export const Secondary: Story = {
 export const Striped: Story = {
     args: {
         id: 'striped-table',
-        testId: 'striped-table',
         primary: true,
         striped: true,
         columns: [
@@ -116,7 +114,6 @@ export const Striped: Story = {
 export const Hover: Story = {
     args: {
         id: 'hover-table',
-        testId: 'hover-table',
         primary: true,
         hover: true,
         columns: [
@@ -137,41 +134,10 @@ export const Hover: Story = {
     },
 }
 
-export const Sizes: Story = {
-    render: (args) => {
-        return (
-            <div
-                style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '2rem',
-                    width: '700px',
-                }}
-            >
-                <Table
-                    {...args}
-                    id='small-table'
-                    size='small'
-                />
-
-                <Table
-                    {...args}
-                    id='medium-table'
-                    size='medium'
-                />
-
-                <Table
-                    {...args}
-                    id='large-table'
-                    size='large'
-                />
-            </div>
-        )
-    },
+export const Actions: Story = {
     args: {
-        id: 'sizes-table',
-        testId: 'sizes-table',
-        primary: true,
+        id: 'actions',
+        data: sampleData,
         columns: [
             {
                 key: 'name',
@@ -185,14 +151,17 @@ export const Sizes: Story = {
                 key: 'role',
                 label: 'Role',
             },
-        ],
-        data: sampleData,
-    },
-    argTypes: {
-        size: {
-            table: {
-                disable: true,
+            {
+                label: 'Actions',
+                render: () => (
+                    <Button
+                        id='button'
+                        label='Button'
+                        size='small'
+                        onClick={() => {}}
+                    />
+                ),
             }
-        }
+        ]
     }
 }
