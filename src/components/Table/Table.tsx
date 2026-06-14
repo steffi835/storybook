@@ -4,7 +4,7 @@ export interface TableColumn<T> {
     label: string
 
     children?: TableColumn<T>[]
-    key?: keyof T
+    key?: string
     render?: (row: T) => React.ReactNode
 }
 
@@ -32,6 +32,12 @@ export const Table = <T extends Record<string, unknown>>(props: TableProps<T>) =
     const mode = primary ? styles.primary : styles.secondary
     const cardMode = primary ? styles['card-primary'] : styles['card-secondary']
     const leafColumns = columns.flatMap((column) => column.children ? column.children : [column])
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const getValue = (obj: any, path: string) =>
+        path.split('.').reduce(
+            (current, key) => current?.[key],
+            obj
+        )
 
     return (
         <div className={[styles['card'], cardMode].join(' ')}>
@@ -70,7 +76,6 @@ export const Table = <T extends Record<string, unknown>>(props: TableProps<T>) =
                                 )
                             })}
                         </tr>
-
                         <tr>
                             {columns.flatMap((column) =>
                                 column.children
@@ -87,17 +92,11 @@ export const Table = <T extends Record<string, unknown>>(props: TableProps<T>) =
                         {data.map((row, rowIndex) => (
                             <tr key={rowIndex}>
                                 {leafColumns.map((column, colIndex) => (
-                                    <td
-                                        key={
-                                            column.key
-                                                ? String(column.key)
-                                                : colIndex
-                                        }
-                                    >
+                                    <td key={column.key ?? colIndex}>
                                         {column.render
                                             ? column.render(row)
                                             : column.key
-                                                ? String(row[column.key])
+                                                ? String(getValue(row, column.key) ?? '')
                                                 : null}
                                     </td>
                                 ))}
