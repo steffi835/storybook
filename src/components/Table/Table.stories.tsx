@@ -9,16 +9,22 @@ const sampleData = [
         name: 'John Doe',
         email: 'john@example.com',
         role: 'Admin',
+        header1: 'Test1',
+        header2: 'Test2'
     },
     {
         name: 'Jane Smith',
         email: 'jane@example.com',
         role: 'Editor',
+        header1: 'Test1',
+        header2: 'Test2'
     },
     {
         name: 'Michael Lee',
         email: 'michael@example.com',
         role: 'Viewer',
+        header1: 'Test1',
+        header2: 'Test2'
     },
 ]
 
@@ -161,6 +167,40 @@ export const Actions: Story = {
                         onClick={() => {}}
                     />
                 ),
+            }
+        ]
+    }
+}
+
+export const GroupedColumns: Story = {
+    args: {
+        id: 'actions',
+        data: sampleData,
+        columns: [
+            {
+                key: 'name',
+                label: 'Name',
+            },
+            {
+                key: 'email',
+                label: 'Email',
+            },
+            {
+                key: 'role',
+                label: 'Role',
+            },
+            {
+                label: 'Group',
+                children: [
+                    {
+                        key: 'header1',
+                        label: 'Header 1'
+                    },
+                    {
+                        key: 'header2',
+                        label: 'Header 2'
+                    }
+                ]
             }
         ]
     }

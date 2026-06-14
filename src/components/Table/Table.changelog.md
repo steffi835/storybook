@@ -5,3 +5,4 @@
 - **v1.1.0** - 14 Jun 2026
   - Remove **`size`** attribute
   - Refactor component
+- **v1.2.0** - 14 Jun 2026 - Add **`children`** attribute
