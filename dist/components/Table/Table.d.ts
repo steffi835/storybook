@@ -1,5 +1,6 @@
 export interface TableColumn<T> {
     label: string;
+    children?: TableColumn<T>[];
     key?: keyof T;
     render?: (row: T) => React.ReactNode;
 }

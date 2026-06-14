@@ -159,7 +159,7 @@ var o = {
 	account: "_account_1k6ie_142",
 	date: "_date_1k6ie_146"
 }, h = (e) => {
-	let { id: r, columns: i, data: a, hover: o = !1, primary: s = !0, striped: c = !1 } = e, l = s ? m.primary : m.secondary, u = s ? m["card-primary"] : m["card-secondary"];
+	let { id: r, columns: i, data: a, hover: o = !1, primary: s = !0, striped: c = !1 } = e, l = s ? m.primary : m.secondary, u = s ? m["card-primary"] : m["card-secondary"], d = i.flatMap((e) => e.children ? e.children : [e]);
 	return /* @__PURE__ */ t("div", {
 		className: [m.card, u].join(" "),
 		children: /* @__PURE__ */ t("div", {
@@ -173,7 +173,13 @@ var o = {
 					c ? m.striped : "",
 					o ? m.hover : ""
 				].join(" "),
-				children: [/* @__PURE__ */ t("thead", { children: /* @__PURE__ */ t("tr", { children: i.map((e, n) => /* @__PURE__ */ t("th", { children: e.label }, e.key ? String(e.key) : n)) }) }), /* @__PURE__ */ t("tbody", { children: a.map((e, n) => /* @__PURE__ */ t("tr", { children: i.map((n, r) => /* @__PURE__ */ t("td", { children: n.render ? n.render(e) : n.key ? String(e[n.key]) : null }, n.key ? String(n.key) : r)) }, n)) })]
+				children: [/* @__PURE__ */ n("thead", { children: [/* @__PURE__ */ t("tr", { children: i.map((e, n) => e.children ? /* @__PURE__ */ t("th", {
+					colSpan: e.children.length,
+					children: e.label
+				}, n) : /* @__PURE__ */ t("th", {
+					rowSpan: 2,
+					children: e.label
+				}, n)) }), /* @__PURE__ */ t("tr", { children: i.flatMap((e) => e.children ? e.children.map((n, r) => /* @__PURE__ */ t("th", { children: n.label }, `${e.label}-${r}`)) : []) })] }), /* @__PURE__ */ t("tbody", { children: a.map((e, n) => /* @__PURE__ */ t("tr", { children: d.map((n, r) => /* @__PURE__ */ t("td", { children: n.render ? n.render(e) : n.key ? String(e[n.key]) : null }, n.key ? String(n.key) : r)) }, n)) })]
 			})
 		})
 	});
