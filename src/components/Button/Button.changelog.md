@@ -5,3 +5,4 @@
 - **v1.1.0** - 14 Jun 2026
   - Remove **`data-testid`** attribute
   - Refactor component
+- **v1.1.1** - 20 Jun 2026 - Fix UI for disabled button
