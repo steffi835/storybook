@@ -36,6 +36,11 @@
     width: 12px;
 }
 
+.trigger:disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
 .menu {
     background-color: #ffffff;
     border: 0.5px solid;
@@ -155,4 +160,10 @@
 
 .secondary .label {
     color: #ff3092;
+}
+
+.primary .trigger:disabled,
+.secondary .trigger:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
