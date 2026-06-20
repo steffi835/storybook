@@ -7,3 +7,4 @@
   - Add **`error`**, **`label`** and **`mandatory`** attribute
   - Remove **`data-testid`** and **`size`** attribute
   - Refactor component
+- **v1.3.0** - 21 Jun 2026 - Add **`disabled`** attribute
