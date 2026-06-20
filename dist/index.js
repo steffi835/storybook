@@ -37,7 +37,7 @@ var o = {
 	active: "_active_1ip8r_116",
 	secondary: "_secondary_1ip8r_122"
 }, l = (e) => {
-	let { id: o, options: s, primary: l = !0, onChange: u, disable: d = !1, error: f, label: p, mandatory: m = !1, placeholder: h = "Select", value: g } = e, [_, v] = a(!1), y = i(null), b = s.find((e) => e.value === g), x = l ? c.primary : c.secondary;
+	let { id: o, options: s, primary: l = !0, onChange: u, disabled: d = !1, error: f, label: p, mandatory: m = !1, placeholder: h = "Select", value: g } = e, [_, v] = a(!1), y = i(null), b = s.find((e) => e.value === g), x = l ? c.primary : c.secondary;
 	return r(() => {
 		let e = (e) => {
 			y.current && !y.current.contains(e.target) && v(!1);

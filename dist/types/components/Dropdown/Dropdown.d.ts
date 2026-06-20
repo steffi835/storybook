@@ -6,7 +6,7 @@ export interface DropdownProps {
     id: string;
     options: DropdownOption[];
     onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-    disable?: boolean;
+    disabled?: boolean;
     error?: string;
     label?: string;
     mandatory?: boolean;
