@@ -12,6 +12,7 @@ export interface DropdownProps {
     options: DropdownOption[]
     onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
 
+    disable?: boolean
     error?: string
     label?: string
     mandatory?: boolean
@@ -26,6 +27,7 @@ export const Dropdown = (props: DropdownProps) => {
         options,
         primary = true,
         onChange,
+        disable = false,
         error,
         label,
         mandatory = false,
@@ -83,6 +85,7 @@ export const Dropdown = (props: DropdownProps) => {
             <button
                 type='button'
                 className={styles.trigger}
+                disabled={disable}
                 onClick={() => setOpen(prev => !prev)}
             >
                 {selected?.label || placeholder}
