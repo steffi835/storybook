@@ -1,6 +1,7 @@
 export interface InputProps {
     id: string;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    disabled?: boolean;
     error?: string;
     label?: string;
     mandatory?: boolean;
