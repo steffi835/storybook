@@ -5,6 +5,7 @@ export interface InputProps {
 
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 
+    disabled?: boolean
     error?: string
     label?: string
     mandatory?: boolean
@@ -18,6 +19,7 @@ export const Input = (props: InputProps) => {
     const {
         id,
         onChange,
+        disabled = false,
         error,
         label,
         mandatory = false,
@@ -40,6 +42,7 @@ export const Input = (props: InputProps) => {
                 id={id}
                 data-testid={id}
                 className={`${styles.base} ${mode}`}
+                disabled={disabled}
                 placeholder={placeholder}
                 type={type}
                 value={value}
