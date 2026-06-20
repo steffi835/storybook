@@ -11,3 +11,4 @@
   - Refactor component
 - **v1.4.1** - 14 Jun 2026 - Refactor component
 - **v1.5.0** - 20 Jun 2026 - Add **`disabled`** attribute
+- **v1.5.1** - 21 Jun 2026 - Typo
