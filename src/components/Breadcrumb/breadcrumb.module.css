@@ -1,0 +1,26 @@
+.base {
+    align-items: center;
+    display: inline-flex;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.list {
+    align-items: center;
+    display: inline-flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.item {
+    align-items: center;
+    color: #1f1f1f;
+    display: inline-flex;
+}
+
+.separator {
+    margin: 0 8px;
+}
