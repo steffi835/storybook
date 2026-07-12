@@ -2,23 +2,33 @@ import styles from './label.module.css'
 
 export interface LabelProps {
     id: string
+
+    value: string
     
-    label: string
+    label?: string
 }
 
 export const Label = (props: LabelProps) => {
     const {
         id,
+        value,
         label
     } = props
 
     return (
-        <span
+        <div
             id={id}
             data-testid={id}
-            className={styles.base}
+            className={styles.container}
         >
-            {label}
-        </span>
+            {label && (
+                <div className={styles.label}>
+                    {label}
+                </div>
+            )}
+            <div className={styles.value}>
+                {value}
+            </div>
+        </div>
     )
 }
