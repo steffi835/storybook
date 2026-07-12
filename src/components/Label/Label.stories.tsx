@@ -28,6 +28,16 @@ type Story = StoryObj<typeof meta>
 export const Variants: Story = {
     args: {
         id: 'label',
+        value: 'Value'
+    }
+}
+
+export const WithLabel: Story = {
+    args: {
+        id: 'label',
+        value: 'Value',
         label: 'Label'
     }
 }
+
+
