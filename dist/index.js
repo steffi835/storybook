@@ -184,17 +184,17 @@ var o = {
 	label: "_label_105da_7",
 	value: "_value_105da_14"
 }, _ = (e) => {
-	let { id: r, value: i, label: a } = e;
+	let { id: r, label: i, value: a } = e;
 	return /* @__PURE__ */ n("div", {
 		id: r,
 		"data-testid": r,
 		className: g.container,
-		children: [a && /* @__PURE__ */ t("div", {
+		children: [i && /* @__PURE__ */ t("div", {
 			className: g.label,
-			children: a
-		}), /* @__PURE__ */ t("div", {
-			className: g.value,
 			children: i
+		}), a && /* @__PURE__ */ t("div", {
+			className: g.value,
+			children: a
 		})]
 	});
 }, v = {
