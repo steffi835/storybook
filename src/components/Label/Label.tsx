@@ -2,17 +2,16 @@ import styles from './label.module.css'
 
 export interface LabelProps {
     id: string
-
-    value: string
     
     label?: string
+    value?: string
 }
 
 export const Label = (props: LabelProps) => {
     const {
         id,
-        value,
-        label
+        label,
+        value
     } = props
 
     return (
@@ -26,9 +25,11 @@ export const Label = (props: LabelProps) => {
                     {label}
                 </div>
             )}
-            <div className={styles.value}>
-                {value}
-            </div>
+            {value && (
+                <div className={styles.value}>
+                    {value}
+                </div>
+            )}
         </div>
     )
 }
