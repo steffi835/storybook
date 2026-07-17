@@ -35,7 +35,7 @@ export const Default: Story = {
                 id='checkbox'
                 label="Checkbox"
                 checked={checked}
-                onChange={setChecked}
+                onChange={(e) => setChecked(e.target.checked)}
             />
         )
     },
@@ -43,15 +43,6 @@ export const Default: Story = {
         id: 'checkbox',
         label: 'Checkbox',
         checked: false,
-        onChange: () => {}
-    }
-}
-
-export const Checked: Story = {
-    args: {
-        id: 'checkbox',
-        label: 'Checkbox',
-        checked: true,
         onChange: () => {}
     }
 }
