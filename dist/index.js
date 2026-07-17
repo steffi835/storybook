@@ -54,18 +54,18 @@ var o = {
 	base: "_base_e7r51_1",
 	disabled: "_disabled_e7r51_18"
 }, d = (e) => {
-	let { id: r, checked: i, label: a, onChange: o, disabled: s } = e;
+	let { id: r, checked: i, onChange: a, disabled: o, label: s } = e;
 	return /* @__PURE__ */ n("label", {
 		htmlFor: r,
-		className: [u.base, s ? u.disabled : ""].join(" "),
+		className: [u.base, o ? u.disabled : ""].join(" "),
 		children: [/* @__PURE__ */ t("input", {
 			id: r,
 			"data-testid": r,
 			checked: i,
-			disabled: s,
+			disabled: o,
 			type: "checkbox",
-			onChange: (e) => o(e.target.checked)
-		}), /* @__PURE__ */ t("span", { children: a })]
+			onChange: a
+		}), /* @__PURE__ */ t("span", { children: s })]
 	});
 }, f = {
 	base: "_base_1ip8r_1",

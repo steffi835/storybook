@@ -1,8 +1,8 @@
 export interface CheckboxProps {
     id: string;
     checked: boolean;
-    label: string;
-    onChange: (checked: boolean) => void;
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     disabled?: boolean;
+    label?: string;
 }
 export declare const Checkbox: (props: CheckboxProps) => import("react").JSX.Element;
