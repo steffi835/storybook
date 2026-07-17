@@ -4,14 +4,14 @@ export interface CheckboxProps {
     id: string
 
     checked: boolean
-    label: string
-    onChange: (checked: boolean) => void
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 
     disabled?: boolean
+    label?: string
 }
 
 export const Checkbox = (props: CheckboxProps) => {
-    const { id, checked, label, onChange, disabled } = props
+    const { id, checked, onChange, disabled, label } = props
 
     return (
         <label htmlFor={id} className={[styles.base, disabled ? styles.disabled : ''].join(' ')}>
@@ -21,7 +21,7 @@ export const Checkbox = (props: CheckboxProps) => {
                 checked={checked}
                 disabled={disabled}
                 type='checkbox'
-                onChange={(e) => onChange(e.target.checked)}
+                onChange={onChange}
             />
             <span>{label}</span>
         </label>
