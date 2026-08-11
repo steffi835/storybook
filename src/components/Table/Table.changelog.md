@@ -8,3 +8,4 @@
 - **v1.2.0** - 14 Jun 2026 - Add **`children`** attribute
 - **v1.2.1** - 14 Jun 2026 - Enhanced component to support nested data field rendering
 - **v1.2.2** - 5 Aug 2026 - Fix UI
+- **v1.2.3** - 11 Aug 2026 - Fix UI
