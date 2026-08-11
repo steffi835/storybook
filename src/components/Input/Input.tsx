@@ -8,11 +8,14 @@ export interface InputProps {
     disabled?: boolean
     error?: string
     label?: string
+    inputMode?: React.HTMLAttributes<HTMLInputElement>['inputMode']
     mandatory?: boolean
     placeholder?: string
     primary?: boolean
     type?: string
     value?: string
+
+    onBlur?: (e: React.FocusEvent<HTMLInputElement>) => void
 }
 
 export const Input = (props: InputProps) => {
@@ -22,11 +25,13 @@ export const Input = (props: InputProps) => {
         disabled = false,
         error,
         label,
+        inputMode,
         mandatory = false,
         placeholder = 'Enter',
         primary = true,
         type = 'text',
-        value
+        value,
+        onBlur
     } = props
     const mode = primary ? styles.primary : styles.secondary
 
@@ -43,9 +48,11 @@ export const Input = (props: InputProps) => {
                 data-testid={id}
                 className={`${styles.base} ${mode}`}
                 disabled={disabled}
+                inputMode={inputMode}
                 placeholder={placeholder}
                 type={type}
                 value={value}
+                onBlur={onBlur}
                 onChange={onChange}
             />
             {error && (
