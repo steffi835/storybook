@@ -152,12 +152,12 @@ var o = {
 	primary: "_primary_9bx8x_56",
 	secondary: "_secondary_9bx8x_70"
 }, h = (r) => {
-	let { id: i, onChange: a, disabled: o = !1, error: s, label: c, mandatory: l = !1, placeholder: u = "Enter", primary: d = !0, type: f = "text", value: p } = r, h = d ? m.primary : m.secondary;
+	let { id: i, onChange: a, disabled: o = !1, error: s, label: c, inputMode: l, mandatory: u = !1, placeholder: d = "Enter", primary: f = !0, type: p = "text", value: h, onBlur: g } = r, _ = f ? m.primary : m.secondary;
 	return /* @__PURE__ */ n(e, { children: [
 		c && /* @__PURE__ */ n("label", {
 			htmlFor: i,
 			className: m.label,
-			children: [c, l && /* @__PURE__ */ t("span", {
+			children: [c, u && /* @__PURE__ */ t("span", {
 				className: m.mandatory,
 				children: " *"
 			})]
@@ -165,11 +165,13 @@ var o = {
 		/* @__PURE__ */ t("input", {
 			id: i,
 			"data-testid": i,
-			className: `${m.base} ${h}`,
+			className: `${m.base} ${_}`,
 			disabled: o,
-			placeholder: u,
-			type: f,
-			value: p,
+			inputMode: l,
+			placeholder: d,
+			type: p,
+			value: h,
+			onBlur: g,
 			onChange: a
 		}),
 		s && /* @__PURE__ */ t("div", {
