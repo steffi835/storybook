@@ -4,4 +4,5 @@ export * from './components/Checkbox/Checkbox';
 export * from './components/Dropdown/Dropdown';
 export * from './components/Input/Input';
 export * from './components/Label/Label';
+export * from './components/Notification/Notification';
 export * from './components/Table/Table';
