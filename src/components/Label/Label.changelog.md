@@ -6,3 +6,4 @@
   - Refactor component
 - **v1.1.1** - 14 Jul 2026 - Refactor component
 - **v1.1.2** - 14 Jul 2026 - Fix value font size
+- **v1.1.3** - 19 Sep 2026 - Fix UI
